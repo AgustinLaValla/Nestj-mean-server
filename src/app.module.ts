@@ -8,6 +8,7 @@ import { DoctorsModule } from './doctors/doctors.module';
 import { HospitalsModule } from './hospitals/hospitals.module';
 import { LoginModule } from './login/login.module';
 import { SearchModule } from './search/search.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { SearchModule } from './search/search.module';
     HospitalsModule,
     LoginModule,
     SearchModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
