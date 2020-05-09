@@ -20,7 +20,7 @@ export class UploadController {
         @Res() res: Response
     ) {
         if (isNullOrUndefined(file)) return res.json({ ok: false, message: 'There is no image' })
-        const hospital = await this.uploadService.checkQueryAndUpdateImage('hospitals', id, file.filename)
+        const hospital = await this.uploadService.handleQueryAndUpdateImage('hospitals', id, file.filename)
         return res.json({ ok: true, message: 'Hospital Image Updated', hospital, file });
 
     };
@@ -33,7 +33,7 @@ export class UploadController {
         @Res() res: Response
     ) {
         if (isNullOrUndefined(file)) return res.json({ ok: false, message: 'There is no image' });
-        const doctor = await this.uploadService.checkQueryAndUpdateImage('doctors', id, file.filename);
+        const doctor = await this.uploadService.handleQueryAndUpdateImage('doctors', id, file.filename);
         return res.json({ ok: true, message: 'Doctor Image Updated', doctor, file })
 
     };
@@ -46,7 +46,7 @@ export class UploadController {
         @Res() res: Response
     ) {
         if (isNullOrUndefined(file)) return res.json({ ok: false, message: 'There is no image' })
-        const user = await this.uploadService.checkQueryAndUpdateImage('users', id, file.filename);
+        const user = await this.uploadService.handleQueryAndUpdateImage('users', id, file.filename);
         return res.json({ ok: true, message: 'User Image Updated', user, file })
 
     };

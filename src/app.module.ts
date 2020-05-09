@@ -9,6 +9,7 @@ import { HospitalsModule } from './hospitals/hospitals.module';
 import { LoginModule } from './login/login.module';
 import { SearchModule } from './search/search.module';
 import { UploadModule } from './upload/upload.module';
+import { ImagesModule } from './images/images.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { UploadModule } from './upload/upload.module';
     LoginModule,
     SearchModule,
     UploadModule,
+    ImagesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

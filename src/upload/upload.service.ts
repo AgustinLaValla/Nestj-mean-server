@@ -15,7 +15,7 @@ export class UploadService {
         @InjectModel('Doctor') private doctorModel: Model<Doctor>
     ) { }
 
-    async checkQueryAndUpdateImage(collection: string, id: string, filename: string) {
+    async handleQueryAndUpdateImage(collection: string, id: string, filename: string) {
         if (collection !== 'users' && collection !== 'hospitals' && collection !== 'doctors') {
             throw new BadRequestException(`Collection: ${collection} does not exists`);
         };
@@ -38,7 +38,7 @@ export class UploadService {
         const schemaDoc: User | Hospital | Doctor = await model.findById(id);
         if (!schemaDoc) throw new NotFoundException(`Requested document not found`);
 
-        const oldPath = schemaDoc.img? `${path.resolve(__dirname, '..', '..', 'uploads', `${collection}`, schemaDoc.img)}` : null;
+        const oldPath = schemaDoc.img ? `${path.resolve(__dirname, '..', '..', 'uploads', `${collection}`, schemaDoc.img)}` : null;
 
         if (oldPath && fs.existsSync(oldPath)) { //If there is an image in this path 
             fs.unlinkSync(oldPath); //It will be deleted
